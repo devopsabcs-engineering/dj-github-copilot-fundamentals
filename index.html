@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cinq diapositives sur GitHub Copilot pour les scientifiques de données dans VS Code : complétion, Ask, mode agent, HVE RPI et choix du modèle.">
+  <meta name="theme-color" content="#00874e">
+  <link rel="alternate" hreflang="fr" href="./">
+  <link rel="alternate" hreflang="en" href="en.html">
+  <title>GitHub Copilot pour les scientifiques de données | VS Code + HVE RPI</title>
+  <link rel="stylesheet" href="assets/presentation.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller à la présentation</a>
+  <header class="site-header">
+    <div class="toolbar">
+      <div class="wordmark"><span>GITHUB COPILOT</span> / SCIENCE DES DONNÉES</div>
+      <div class="actions">
+        <a class="button" href="en.html" lang="en" hreflang="en" aria-label="Read the English version">English</a>
+        <button id="present" class="button primary" type="button" aria-pressed="false" hidden>Présenter</button>
+        <a class="button" href="presentations/github-copilot-data-scientists-desjardins-fr.pptx" download>Télécharger le PowerPoint</a>
+        <a class="button" href="presentations/github-copilot-data-scientists-desjardins-fr.pdf" download>Télécharger le PDF</a>
+      </div>
+    </div>
+    <nav class="chapter-nav" aria-label="Diapositives de la présentation">
+      <a href="#slide-1" aria-current="step"><small>01</small> Le potentiel</a>
+      <a href="#slide-2"><small>02</small> Les modes Copilot</a>
+      <a href="#slide-3"><small>03</small> HVE RPI</a>
+      <a href="#slide-4"><small>04</small> Choisir le modèle</a>
+      <a href="#slide-5"><small>05</small> À essayer</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="slide hero is-active" id="slide-1" aria-labelledby="title-1" tabindex="-1">
+      <div>
+        <p class="eyebrow">Science des données / VS Code</p>
+        <h1 id="title-1">GitHub Copilot<br>pour les scientifiques de données</h1>
+        <p class="thesis">Moins de code répétitif.<br>Plus de place au jugement scientifique.</p>
+        <p class="promise">Compléter le code. Affiner les questions.<br>Déléguer une tâche ciblée, puis vérifier.</p>
+        <p class="audience">Un guide pratique pour les équipes de Desjardins</p>
+      </div>
+      <div class="notebook" aria-label="Le travail en science des données dans un seul espace">
+        <div class="notebook-header">un espace / trois habitudes scientifiques</div>
+        <ol>
+          <li><div><h3>Explorer</h3><p>Comprendre les données et les hypothèses.</p></div></li>
+          <li><div><h3>Expérimenter</h3><p>Comparer des modèles de référence reproductibles.</p></div></li>
+          <li><div><h3>Valider</h3><p>Vérifier le code, les métriques et les risques de fuite.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-2" aria-labelledby="title-2" tabindex="-1">
+      <p class="eyebrow">02 / Choisir l’interaction</p>
+      <h2 id="title-2">Trois façons de travailler avec Copilot</h2>
+      <p class="intro">Choisir le mode selon le travail à déléguer.</p>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">COMPLÉTION</span>
+          <h3>Garder le rythme</h3>
+          <p class="lead">Suggestions dans l’éditeur</p>
+          <p>Compléter une transformation pandas, une requête SQL ou un test.</p>
+          <p class="guard">Vous guidez chaque modification.</p>
+          <code># agréger les transactions<br># par client et par mois</code>
+        </article>
+        <article class="card">
+          <span class="tag">ASK / QUESTIONS</span>
+          <h3>Approfondir l’analyse</h3>
+          <p class="lead">Aide conversationnelle</p>
+          <p>Expliquer un notebook, comparer les métriques ou revoir le découpage.</p>
+          <p class="guard">Des conseils, puis un choix éclairé.</p>
+          <code>« Cette variable révèle-t-elle des informations futures ? »</code>
+        </article>
+        <article class="card">
+          <span class="tag">MODE AGENT</span>
+          <h3>Déléguer une tâche</h3>
+          <p class="lead">Agent + outils</p>
+          <p>Modifier les fichiers, lancer les tests et itérer sur une tâche ciblée.</p>
+          <p class="guard">Vérifiez les changements et les actions.</p>
+          <code>« Créer un pipeline de référence et exécuter ses tests unitaires. »</code>
+        </article>
+      </div>
+      <p class="section-note">Plus d’autonomie, autant de responsabilité. Cibler le contexte et choisir les autorisations.</p>
+      <p class="source">La complétion est une fonction de l’éditeur, pas un mode de conversation. Les libellés varient selon la version et l’environnement.
+        <a href="https://code.visualstudio.com/docs/editing/ai-powered-suggestions">Suggestions dans l’éditeur</a> /
+        <a href="https://code.visualstudio.com/docs/chat/chat-overview">Conversation dans VS Code</a>
+      </p>
+    </section>
+
+    <section class="slide" id="slide-3" aria-labelledby="title-3" tabindex="-1">
+      <p class="eyebrow">03 / Les faits avant les modifications</p>
+      <h2 id="title-3">RPI : passer d’une question à un résultat vérifié</h2>
+      <p class="intro">HVE Core sur GitHub : rechercher &rarr; planifier &rarr; implémenter, puis réviser et assurer le suivi.</p>
+      <div class="cards rpi">
+        <article class="card">
+          <div class="step-title"><span class="step-letter" aria-hidden="true">R</span><h3>Rechercher</h3></div>
+          <p class="lead">Comprendre avant de modifier</p>
+          <ul><li>Examiner les données et le code.</li><li>Vérifier les fuites et les options.</li><li>Distinguer faits et hypothèses.</li></ul>
+          <p class="output">Livrable : constats et décisions à prendre</p>
+          <code>/rpi-research</code>
+        </article>
+        <article class="card">
+          <div class="step-title"><span class="step-letter" aria-hidden="true">P</span><h3>Planifier</h3></div>
+          <p class="lead">Définir des critères vérifiables</p>
+          <ul><li>Choisir le découpage et les métriques.</li><li>Ordonner des tâches ciblées.</li><li>Définir les tests et critères d’acceptation.</li></ul>
+          <p class="output">Livrable : plan et regard critique</p>
+          <code>/rpi-plan</code>
+        </article>
+        <article class="card">
+          <div class="step-title"><span class="step-letter" aria-hidden="true">I</span><h3>Implémenter</h3></div>
+          <p class="lead">Respecter le périmètre approuvé</p>
+          <ul><li>Créer le pipeline et les tests.</li><li>Consigner les résultats des contrôles.</li><li>Comparer les changements au plan.</li></ul>
+          <p class="output">Livrable : changements et validation</p>
+          <code>/rpi-implement</code>
+        </article>
+      </div>
+      <div class="review-strip"><span>Réutiliser la recherche</span><span>Réviser le plan</span><span>Valider les résultats</span><span>Revenir à la phase pertinente</span></div>
+      <p class="source">HVE est un cadre facultatif, pas une fonction par défaut de VS Code. Installer et configurer RPI Agent ou les compétences de chaque phase.
+        <a href="https://github.com/microsoft/hve-core">microsoft/hve-core</a> /
+        <a href="https://github.com/microsoft/hve-core/blob/main/docs/rpi/README.md">Cycle RPI et commandes</a>
+      </p>
+    </section>
+
+    <section class="slide" id="slide-4" aria-labelledby="title-4" tabindex="-1">
+      <p class="eyebrow">04 / Raisonner là où cela compte</p>
+      <h2 id="title-4">Adapter le modèle au niveau d’incertitude</h2>
+      <p class="intro">Utiliser le routage ou choisir le modèle. Monter en capacité lorsque les résultats le justifient.</p>
+      <div class="model-layout">
+        <aside class="router" aria-label="Routage automatique">
+          <p class="eyebrow">Routage automatique</p>
+          <h3>Auto / Hydrafusion*</h3>
+          <p>Laisser le routage équilibrer capacité, latence et coût.</p>
+          <p>Utiliser les options approuvées.<br>Vérifier le sélecteur et les politiques.</p>
+        </aside>
+        <div class="model-rows" aria-label="Choix manuel de la capacité">
+          <article class="model-row"><strong>ÉLEVÉE</strong><div><h3>Recherche + regard critique</h3><p>Questionner les hypothèses, comparer les approches, chercher les fuites et les contre-exemples.</p></div></article>
+          <article class="model-row"><strong>MOYENNE</strong><div><h3>Planification</h3><p>Définir les tâches, les dépendances et les critères d’acceptation mesurables.</p></div></article>
+          <article class="model-row"><strong>FAIBLE / MOYENNE</strong><div><h3>Implémentation</h3><p>Faible pour le courant; moyenne pour le complexe. Monter en capacité si les difficultés persistent.</p></div></article>
+        </div>
+      </div>
+      <p class="section-note">*Hydrafusion dépend de votre configuration; ce n’est pas une option universelle de Copilot. Ces niveaux sont des repères de capacité, pas des catégories de produits ni des réglages d’effort de raisonnement.</p>
+      <p class="source">Le « rubber ducking » consiste à expliquer son raisonnement pour le mettre à l’épreuve. Une réponse convaincante doit quand même être vérifiée.
+        <a href="https://docs.github.com/en/copilot/concepts/models/auto-model-selection">Sélection Auto</a> /
+        <a href="https://docs.github.com/en/copilot/reference/ai-models/supported-models">Modèles disponibles</a>
+      </p>
+    </section>
+
+    <section class="slide" id="slide-5" aria-labelledby="title-5" tabindex="-1">
+      <p class="eyebrow">05 / Une expérience ciblée</p>
+      <h2 id="title-5">À essayer : un modèle de risque de crédit reproductible</h2>
+      <p class="intro">Un jeu de données synthétiques. Un objectif clair. Trois requêtes ciblées.</p>
+      <div class="demo-layout">
+        <div class="prompts">
+          <article class="prompt"><span class="prompt-number" aria-hidden="true">01</span><div><span class="tag">RECHERCHE / ASK</span><blockquote>Examiner ces données synthétiques et ce notebook. Repérer les fuites et comparer les découpages de validation. Ne modifier aucun fichier pour le moment.</blockquote></div></article>
+          <article class="prompt"><span class="prompt-number" aria-hidden="true">02</span><div><span class="tag">PLAN / HVE RPI</span><blockquote>Planifier un modèle reproductible avec un découpage temporel. Ajuster le prétraitement sur les données d’entraînement seulement. Définir les métriques et les tests avant de coder.</blockquote></div></article>
+          <article class="prompt"><span class="prompt-number" aria-hidden="true">03</span><div><span class="tag">IMPLÉMENTATION / AGENT</span><blockquote>Implémenter le plan approuvé et exécuter les tests. Rapporter la PR-AUC, la calibration et les résultats par sous-groupe. Montrer les changements et les limites restantes.</blockquote></div></article>
+        </div>
+        <aside class="done" aria-label="Critères d’acceptation">
+          <p class="eyebrow">Critères de réussite</p>
+          <ul><li>L’exécution à neuf fonctionne.</li><li>Les tests de découpage et de fuite réussissent.</li><li>Les limites sont documentées.</li><li>Une personne révise le résultat.</li></ul>
+          <p>Plus rapide. Aussi rigoureux.</p>
+        </aside>
+      </div>
+      <p class="guardrail"><strong>Cadre bancaire :</strong> données synthétiques ou dépersonnalisées approuvées seulement; aucun renseignement personnel de client ni secret dans les requêtes.</p>
+      <details>
+        <summary>Notes de présentation et sources</summary>
+        <p>Il s’agit d’un exemple éducatif, pas d’une approbation de modèle de crédit en production. Convenir des seuils avec le métier avant de coder. Tenir compte de l’horizon de prédiction, de l’isolation des clients et des intervalles temporels selon les données. Conserver un jeu de test final intact.</p>
+        <p>La PR-AUC n’est pas un critère suffisant. La calibration, l’incertitude et les sous-groupes doivent être interprétés dans leur contexte. Une analyse par sous-groupe ne démontre ni l’équité ni la conformité. Une exécution à neuf nécessite des dépendances et des graines aléatoires documentées, ainsi qu’un environnement vierge.</p>
+        <p>Les politiques du client déterminent les données, les fournisseurs, les autorisations et les durées de conservation acceptables. La dépersonnalisation exige une approbation et ne garantit pas la confidentialité. Les niveaux de capacité proposés sont des conseils d’atelier, pas des exigences HVE. Le comportement et la disponibilité d’Hydrafusion n’ont pas été vérifiés dans la documentation publique de Copilot.</p>
+        <ul>
+          <li><a href="https://code.visualstudio.com/docs/editing/ai-powered-suggestions">VS Code : suggestions dans l’éditeur</a></li>
+          <li><a href="https://code.visualstudio.com/docs/chat/chat-overview">VS Code : conversation et contexte</a></li>
+          <li><a href="https://github.com/microsoft/hve-core/blob/main/docs/rpi/README.md">HVE Core : cycle RPI</a> (recherche au besoin, critique du plan, implémentation, révision facultative et suivi)</li>
+          <li><a href="https://docs.github.com/en/copilot/concepts/models/auto-model-selection">GitHub : sélection Auto</a></li>
+          <li><a href="https://docs.github.com/en/copilot/reference/ai-models/supported-models">GitHub : modèles pris en charge</a></li>
+        </ul>
+        <p>Sources consultées le 20 octobre 2026. Les fonctionnalités, la disponibilité et les libellés peuvent évoluer.</p>
+      </details>
+    </section>
+  </main>
+
+  <div class="present-controls" id="present-controls" hidden>
+    <button class="button" id="previous" type="button" aria-label="Diapositive précédente">Précédente</button>
+    <span id="counter">1 / 5</span>
+    <button class="button primary" id="next" type="button" aria-label="Diapositive suivante">Suivante</button>
+    <span class="source">Flèches pour naviguer. Échap pour revenir à la lecture.</span>
+  </div>
+  <p class="sr-only" id="announcement" aria-live="polite" aria-atomic="true"></p>
+  <footer class="page-footer">
+    <span>Couleurs inspirées de Desjardins. Ce n’est pas un modèle officiel ni une approbation de la marque.</span>
+    <a href="https://github.com/devopsabcs-engineering/dj-github-copilot-fundamentals">Voir le dépôt</a>
+  </footer>
+  <script src="assets/presentation.js"></script>
+</body>
+</html>
